@@ -1,0 +1,2 @@
+#cloud-config
+ssh_pwauth: ${ssh_pwauth}

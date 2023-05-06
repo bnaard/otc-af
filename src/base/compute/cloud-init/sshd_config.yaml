@@ -1,0 +1,10 @@
+#cloud-config
+runcmd:
+  - sed -i 's/\#\?AllowTcpForwarding .\+/AllowTcpForwarding ${allow_tcp_forwarding}/' /etc/ssh/sshd_config
+  - sed -i 's/\#\?PasswordAuthentication .\+/PasswordAuthentication ${password_authentication}/' /etc/ssh/sshd_config
+  - sed -i 's/\#\?PermitEmptyPasswords .\+/PermitEmptyPasswords ${permit_empty_passwords}/' /etc/ssh/sshd_config
+  - sed -i 's/\#\?PermitRootLogin .\+/PermitRootLogin ${permit_root_login}/' /etc/ssh/sshd_config
+  - sed -i 's/\#\?Protocol .\+/Protocol ${protocol}/' /etc/ssh/sshd_config
+  - sed -i 's/\#\?ClientAliveInterval .\+/ClientAliveInterval ${client_alive_interval}/' /etc/ssh/sshd_config
+  - sed -i 's/\#\?MaxAuthTries .\+/MaxAuthTries ${max_auth_tries}/' /etc/ssh/sshd_config
+  - service ssh restart

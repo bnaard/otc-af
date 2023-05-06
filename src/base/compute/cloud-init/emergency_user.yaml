@@ -1,0 +1,10 @@
+#cloud-config
+users:
+  - name: ${username}
+    gecos: ${gecos}
+    lock_passwd: ${lock_passwd}
+    shell: ${shell}
+    groups: ${groups}
+    sudo: ${sudo}
+    ssh-authorized-keys:
+      - ${public_key_file}
