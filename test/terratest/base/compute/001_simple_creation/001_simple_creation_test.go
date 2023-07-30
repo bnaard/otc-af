@@ -1,13 +1,12 @@
 package test
 
-
 import (
 	"fmt"
+	"log"
+	"os"
 	"strings"
 	"testing"
 	"time"
-	"os"
-	"log"
 
 	"github.com/gruntwork-io/terratest/modules/retry"
 	"github.com/gruntwork-io/terratest/modules/ssh"
@@ -17,8 +16,8 @@ import (
 func TestTerraformHelloWorldExample(t *testing.T) {
 	t.Parallel()
 
-	// Construct the terraform options with default retryable errors to handle the most common
-	// retryable errors in terraform testing.
+	// Construct the terraform options with default errors to handle the most common
+	// errors in terraform testing.
 	terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
 		// Set the path to the Terraform code that will be tested.
 		TerraformDir: "/workdir/test/base/compute/001_simple_creation",
@@ -39,17 +38,17 @@ func TestTerraformHelloWorldExample(t *testing.T) {
 
 	// Create an SSH key pair struct with the private key location
 	priv, err := os.ReadFile("/workdir/emergency-user-key")
-    if err != nil {
-        log.Fatal(err)
-    }
+	if err != nil {
+		log.Fatal(err)
+	}
 	pub, err := os.ReadFile("/workdir/emergency-user-key.pub")
-    if err != nil {
-        log.Fatal(err)
-    }
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	keyPair := ssh.KeyPair{
 		PrivateKey: string(priv),
-		PublicKey: string(pub),
+		PublicKey:  string(pub),
 	}
 
 	publicHost := ssh.Host{
@@ -101,6 +100,5 @@ func TestTerraformHelloWorldExample(t *testing.T) {
 
 		return "", nil
 	})
-	
-}
 
+}
