@@ -5,7 +5,7 @@
 # Retrieve OpenTelekomCloud image matching image_name variable
 data "opentelekomcloud_images_image_v2" "otc_af_base_compute_image" {
   name = var.image_name
-}
+} 
 
 # Retrieve OpenTelekomCloud flavor matching flavor_name variable
 data "opentelekomcloud_compute_flavor_v2" "otc_af_base_compute_flavor" {

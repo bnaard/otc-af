@@ -23,7 +23,7 @@ func TestTerraformHelloWorldExample(t *testing.T) {
 		// Set the path to the Terraform code that will be tested.
 		TerraformDir: "/workdir/test/base/compute/001_simple_creation",
 		VarFiles: []string{
-			"/workdir/test/base/compute/000_shared/test_credentials.tfvars",
+			// "/workdir/test/base/compute/000_shared/test_credentials.tfvars",
 			"/workdir/test/base/compute/001_simple_creation/test.tfvars",
 		},
 	})

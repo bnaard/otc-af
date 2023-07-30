@@ -33,8 +33,8 @@ resource "opentelekomcloud_vpc_subnet_v1" "test_subnet" {
 
 module "otc_af_base_compute_test_01_basic_creation" {
   count                               = 1
-  source                              = "github.com/bnaard/otc-af/src/base/compute?ref=v0.1.0"
-  # source                              = "../../../src/base/compute"
+  # source                              = "git::https://github.com/bnaard/otc-af.git?ref=v0.1.0"
+  source                              = "../../../../src/base/compute"
   name                                = "otc_af_base_compute_test_01_basic_creation"
   tags                                = { deployment = "otc_af_base_compute_test", environment = "test_01_basic_creation", function = "compute" }
   network_subnet_id                   = opentelekomcloud_vpc_subnet_v1.test_subnet.id
